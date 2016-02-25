@@ -2,25 +2,31 @@
  * File:   Table.h
  * Author: Scott Nevin
  *
- * Created on February 22, 2016, 8:48 PM
+ /* 
+ * File:   Table.h
+ * Author: Dr. Mark E. Lehr
+ * Created on February 18, 2016, 8:54 AM
+ * Specification for the Table
  */
 
 #ifndef TABLE_H
 #define	TABLE_H
 
+#include "RowAry.h"
+
 class Table{
     private:
-       int *data;
-       int size;
-       void fillArray(); //utility function
-       void setsize(int);//Another utility function
-   public:
-       Array1D(int);
-       ~Array1D(){
-           delete []data;
+        int szRow;
+        int szCol;
+        RowAray **columns;
+    public:
+        Table(int,int);
+        ~Table(){
+           //delete []columns;
        }
-       void prntArray(int);
+        int getSzRow(){return szRow;}
+        int getSzCol(){return szCol;}
+        int getData(int,int);
 };
 
 #endif	/* TABLE_H */
-

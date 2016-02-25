@@ -11,37 +11,16 @@ using namespace std;
 
 //Include user libraries
 #include "Table.h"
+#include "RowAry.h"
 
 //constructor
-Table::Table(int n){
-    //First set the size
-    setsize(n);
-    //Fill the array
-    fillArray();
+Table::Table(int r, int c){
+    //set number of rows and columns
+    szRow = r;
+    szCol = c;
 }
 
-void Table::setsize(int n){
-    //Validate the size
-    if(n<=2)size=2;
-    else size=n;   
+int Table::getData(int r,int c){
+    //get data to return
+    return columns[r]->getData(c);
 }
-
-void Table::fillArray(){
-    //Allocate memory
-    data=new int[size];
-    //fill array randomly
-    for(int i=0;i<size;i++){
-        data[i]=rand()%90+10;      
-    }
-}
-
-void Table::prntArray(int perLine){
-    //print array
-    cout<<endl;
-    for(int i=0;i<size;i++){
-        cout<<data[i]<<" ";
-        if(i%perLine==(perLine-1))cout<<endl;
-    }
-    cout<<endl;
-}
-  
