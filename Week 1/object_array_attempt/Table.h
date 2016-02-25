@@ -18,11 +18,12 @@ class Table{
     private:
         int szRow;
         int szCol;
+        void fillArray(int,int);
         RowAray **columns;
     public:
         Table(int,int);
         ~Table(){
-           //delete []columns;
+           delete []columns;
        }
         int getSzRow(){return szRow;}
         int getSzCol(){return szCol;}

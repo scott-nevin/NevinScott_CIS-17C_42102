@@ -17,7 +17,7 @@ class RowAray{
     public:
         RowAray(int);
         ~RowAray(){
-          // delete []rowData;
+          delete []rowData;
        }
         int getSize(){return size;}
         int getData(int i){return rowData[i];}

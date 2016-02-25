@@ -11,16 +11,27 @@ using namespace std;
 
 //Include user libraries
 #include "Table.h"
-#include "RowAry.h"
 
 //constructor
 Table::Table(int r, int c){
     //set number of rows and columns
     szRow = r;
     szCol = c;
+    
+    //populate array
+    fillArray(r,c);
+}
+
+void Table::fillArray(int size, int rows){
+    //Allocate memory
+    columns=new RowAray *[size];
+    //fill array randomly
+    for(int i=0;i<size;i++){
+        columns[i]= new RowAray(rows);      
+    }
 }
 
 int Table::getData(int r,int c){
     //get data to return
-    return columns[r]->getData(c);
+    return columns[r]->RowAray::getData(c);
 }
